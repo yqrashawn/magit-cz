@@ -122,8 +122,8 @@
   (setq magit-cz--message (magit-cz-git-commit-setup-function nil t))
   (magit-commit-create args))
 
-(transient-append-suffix 'magit-commit "c" '("c" "CZ Commit"  magit-cz-commit))
 (transient-append-suffix 'magit-commit "c" '("v" "Magit Commit"  magit-commit-create))
+(transient-append-suffix 'magit-commit "v" '("c" "CZ Commit"  magit-cz-commit))
 (transient-append-suffix 'magit-commit "v" '("B" "CZ Breaking Change Commit"  magit-cz-breaking-change-commit))
 (transient-append-suffix 'magit-commit "v" '("S" "CZ Commit With Scope"  magit-cz-with-scope-commit))
 
