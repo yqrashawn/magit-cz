@@ -54,6 +54,9 @@
 (defcustom magit-cz-types-prompt-template "[%s]%s - %s"
   "Template for types prompt")
 
+(defcustom magit-cz-type-and-scope-template "%s(%s): "
+  "Template for type and scope part of commit message \"feat(scope): \"")
+
 (defun magit-cz--types-message ()
   (propertize
    (concat
@@ -103,7 +106,7 @@
              (scope "")
              (scope? (not (eq (length scope) 0)))
              (bc-body (and bc? (read-string "Breaking Change Body: ")))
-             (msg (if scope? (format "%s(%s): " type scope) (concat type ": ")))
+             (msg (if scope? (format magit-cz-type-and-scope-template type scope) (concat type ": ")))
              (msg (if bc? (format "%s\n\n\nBREAKING CHANGE: %s\n" msg bc-body) msg)))
         msg))))
 
